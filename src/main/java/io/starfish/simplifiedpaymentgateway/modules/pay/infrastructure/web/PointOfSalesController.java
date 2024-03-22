@@ -1,5 +1,6 @@
 package io.starfish.simplifiedpaymentgateway.modules.pay.infrastructure.web;
 
+import io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize.PaymentAuthorizationResponse;
 import io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize.PaymentAuthorizationResponseDto;
 import io.starfish.simplifiedpaymentgateway.modules.pay.application.PaymentFacade;
 import io.starfish.simplifiedpaymentgateway.modules.pay.application.PaymentRequestDto;
@@ -20,7 +21,7 @@ class PointOfSalesController {
     }
 
     @PostMapping("/pay")
-    ResponseEntity<PaymentAuthorizationResponseDto> pay(@RequestBody PaymentRequestDto paymentRequestDto) {
+    ResponseEntity<PaymentAuthorizationResponse> pay(@RequestBody PaymentRequestDto paymentRequestDto) {
         return ResponseEntity.ok(paymentFacade.initializePayment(paymentRequestDto));
     }
 }

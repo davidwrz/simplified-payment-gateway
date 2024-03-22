@@ -12,7 +12,8 @@ public class AuthorizePayment {
         this.authorizationCaller = authorizationCaller;
     }
 
-    public PaymentAuthorizationResponseDto authorize(PaymentRequestDto paymentRequestDto) {
-        return authorizationCaller.authorizePaymentFromAdyenSandbox(paymentRequestDto);
+    public PaymentAuthorizationResponse authorize(PaymentRequestDto paymentRequestDto) {
+        var paymentAuthorizationResponseDto = authorizationCaller.authorizePaymentFromAdyenSandbox(paymentRequestDto);
+        return new PaymentAuthorizationResponse(paymentAuthorizationResponseDto.resultCode());
     }
 }
