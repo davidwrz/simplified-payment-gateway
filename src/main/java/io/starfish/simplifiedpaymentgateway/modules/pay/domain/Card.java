@@ -1,4 +1,4 @@
-package io.starfish.simplifiedpaymentgateway.modules.payment.domain;
+package io.starfish.simplifiedpaymentgateway.modules.pay.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.starfish.simplifiedpaymentgateway.utils.configuration.database.MonthYearDeserializer;
