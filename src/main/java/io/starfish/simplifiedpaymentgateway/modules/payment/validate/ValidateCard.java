@@ -1,7 +1,6 @@
-package io.starfish.simplifiedpaymentgateway.modules.validate;
+package io.starfish.simplifiedpaymentgateway.modules.payment.validate;
 
-import io.starfish.simplifiedpaymentgateway.modules.pay.application.CardDto;
-import io.starfish.simplifiedpaymentgateway.modules.pay.application.PaymentRequestDto;
+import io.starfish.simplifiedpaymentgateway.modules.payment.pay.PaymentRequestDto;
 import org.springframework.stereotype.Service;
 
 @Service

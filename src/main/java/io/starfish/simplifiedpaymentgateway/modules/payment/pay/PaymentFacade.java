@@ -1,9 +1,8 @@
-package io.starfish.simplifiedpaymentgateway.modules.pay.application;
+package io.starfish.simplifiedpaymentgateway.modules.payment.pay;
 
 import io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize.PaymentAuthorizationResponse;
-import io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize.PaymentAuthorizationResponseDto;
 import io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize.AuthorizePayment;
-import io.starfish.simplifiedpaymentgateway.modules.validate.ValidateCard;
+import io.starfish.simplifiedpaymentgateway.modules.payment.validate.ValidateCard;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,7 +20,8 @@ public class PaymentFacade {
 
     public PaymentAuthorizationResponse initializePayment(PaymentRequestDto paymentRequestDto) {
         if (validateCard.isValid(paymentRequestDto)) {
-            return authorizePayment.authorize(paymentRequestDto);
+            PaymentRequest paymentRequest = mapper.toEntity(paymentRequestDto);
+            return authorizePayment.authorize(paymentRequest);
         } else {
             throw new CardValidationException("Invalid card");
         }

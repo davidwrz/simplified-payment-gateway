@@ -1,4 +1,4 @@
-package io.starfish.simplifiedpaymentgateway.modules.validate;
+package io.starfish.simplifiedpaymentgateway.modules.payment.validate;
 
 import org.springframework.stereotype.Service;
 

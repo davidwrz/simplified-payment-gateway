@@ -1,13 +1,10 @@
 package io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize;
 
-import io.starfish.simplifiedpaymentgateway.modules.pay.application.PaymentRequestDto;
+import io.starfish.simplifiedpaymentgateway.modules.payment.pay.PaymentRequest;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 @Service
 class AuthorizationCaller {
@@ -22,16 +19,15 @@ class AuthorizationCaller {
         this.webClient = webClientBuilder.baseUrl(authorizePaymentUrl).build();
     }
 
-    PaymentAuthorizationResponseDto authorizePaymentFromAdyenSandbox(PaymentRequestDto paymentRequestDto) {
+    PaymentAuthorizationResponseDto authorizePaymentFromAdyenSandbox(PaymentRequest paymentRequest) {
         return webClient.post()
                 .uri(authorizePaymentUrl)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .headers(headers -> headers.set("X-API-Key", apiKey))
-                .bodyValue(paymentRequestDto)
+                .bodyValue(paymentRequest)
                 .retrieve()
                 .bodyToMono(PaymentAuthorizationResponseDto.class)
                 .block();
     }
-
 }

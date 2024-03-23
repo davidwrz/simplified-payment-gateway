@@ -1,6 +1,7 @@
 package io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize;
 
-import io.starfish.simplifiedpaymentgateway.modules.pay.application.PaymentRequestDto;
+import io.starfish.simplifiedpaymentgateway.modules.payment.pay.PaymentRequest;
+import io.starfish.simplifiedpaymentgateway.modules.payment.pay.PaymentRequestDto;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,8 +13,8 @@ public class AuthorizePayment {
         this.authorizationCaller = authorizationCaller;
     }
 
-    public PaymentAuthorizationResponse authorize(PaymentRequestDto paymentRequestDto) {
-        var paymentAuthorizationResponseDto = authorizationCaller.authorizePaymentFromAdyenSandbox(paymentRequestDto);
+    public PaymentAuthorizationResponse authorize(PaymentRequest paymentRequest) {
+        var paymentAuthorizationResponseDto = authorizationCaller.authorizePaymentFromAdyenSandbox(paymentRequest);
         return new PaymentAuthorizationResponse(paymentAuthorizationResponseDto.resultCode());
     }
 }

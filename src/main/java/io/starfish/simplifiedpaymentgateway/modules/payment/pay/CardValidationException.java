@@ -1,4 +1,4 @@
-package io.starfish.simplifiedpaymentgateway.modules.pay.application;
+package io.starfish.simplifiedpaymentgateway.modules.payment.pay;
 
 class CardValidationException extends RuntimeException {
 

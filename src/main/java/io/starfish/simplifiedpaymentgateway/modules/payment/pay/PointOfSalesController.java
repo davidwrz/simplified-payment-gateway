@@ -1,9 +1,6 @@
-package io.starfish.simplifiedpaymentgateway.modules.pay.infrastructure.web;
+package io.starfish.simplifiedpaymentgateway.modules.payment.pay;
 
-import io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize.PaymentAuthorizationResponse;
-import io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize.PaymentAuthorizationResponseDto;
-import io.starfish.simplifiedpaymentgateway.modules.pay.application.PaymentFacade;
-import io.starfish.simplifiedpaymentgateway.modules.pay.application.PaymentRequestDto;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +18,7 @@ class PointOfSalesController {
     }
 
     @PostMapping("/pay")
-    ResponseEntity<PaymentAuthorizationResponse> pay(@RequestBody PaymentRequestDto paymentRequestDto) {
+    ResponseEntity<?> pay(@Valid @RequestBody PaymentRequestDto paymentRequestDto) {
         return ResponseEntity.ok(paymentFacade.initializePayment(paymentRequestDto));
     }
 }
