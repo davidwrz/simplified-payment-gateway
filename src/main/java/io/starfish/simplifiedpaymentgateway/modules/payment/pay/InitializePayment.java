@@ -13,7 +13,7 @@ class InitializePayment {
 
     public PaymentRequest initialize(PaymentRequestDto paymentRequestDto) {
         Amount amount = getAmount(paymentRequestDto);
-        PaymentMethod paymentMethod = getPaymentMethod(Type.SCHEME, paymentRequestDto.paymentMethodDto());
+        PaymentMethod paymentMethod = getPaymentMethod(Type.SCHEME, paymentRequestDto.cardDto());
 
         return new PaymentRequest(amount, UUID.randomUUID().toString(), paymentMethod, merchantAccount);
     }
@@ -25,14 +25,14 @@ class InitializePayment {
         );
     }
 
-    private PaymentMethod getPaymentMethod(Type type, PaymentRequestDto.PaymentMethodDto paymentMethodDto) {
+    private PaymentMethod getPaymentMethod(Type type, PaymentRequestDto.CardDto cardDto) {
         return new PaymentMethod(
                 type.getValue(),
-                paymentMethodDto.number(),
-                paymentMethodDto.expiryMonth(),
-                paymentMethodDto.expiryYear(),
-                paymentMethodDto.holderName(),
-                paymentMethodDto.cvc()
+                cardDto.number(),
+                cardDto.expiryMonth(),
+                cardDto.expiryYear(),
+                cardDto.holderName(),
+                cardDto.cvc()
         );
     }
 }

@@ -1,6 +1,6 @@
 package io.starfish.simplifiedpaymentgateway.security;
 
-import io.starfish.simplifiedpaymentgateway.modules.user.register.application.RegisterUserFacade;
+import io.starfish.simplifiedpaymentgateway.modules.user.register.RegisterUserFacade;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
