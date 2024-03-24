@@ -19,6 +19,6 @@ class PointOfSalesController {
 
     @PostMapping("/pay")
     ResponseEntity<?> pay(@Valid @RequestBody PaymentRequestDto paymentRequestDto) {
-        return ResponseEntity.ok(paymentFacade.initializePayment(paymentRequestDto));
+        return ResponseEntity.ok(paymentFacade.pay(paymentRequestDto));
     }
 }

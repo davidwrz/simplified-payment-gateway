@@ -1,25 +1,24 @@
 package io.starfish.simplifiedpaymentgateway.modules.payment.pay;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record PaymentRequestDto(
-        @NotNull Amount amount,
-//        String reference,
-        PaymentMethod paymentMethod
-//        String merchantAccount
+        @JsonProperty("amount") @NotNull PaymentRequestDto.AmountDto amountDto,
+        @JsonProperty("paymentMethod") @NotNull PaymentMethodDto paymentMethodDto
 ) {
-    public record Amount(
+    public record AmountDto(
             @NotNull String currency,
-            @NotNull int value) {
+            @NotNull Long value) {
     }
 
-    public record PaymentMethod(
-//            String type,
+    public record PaymentMethodDto(
             @NotNull @Size(min = 13, max = 16) String number,
-            @NotNull @Size(min = 1, max = 1) String expiryMonth,
+            @NotNull @Pattern(regexp = "\\d{2}", message = "Wrong expiry month") String expiryMonth,
             @NotNull @Size(min = 1, max = 1) String expiryYear,
-            @NotNull String holderName,
+            @NotNull @Size(min = 3, max = 50) String holderName,
             @NotNull @Size(min = 3, max = 3) String cvc
     ) {
     }

@@ -8,7 +8,7 @@ placeholder
 
 ## Not done
 
-microservices, all security filters (fraud), environments, automatic deployment
+microservices, all security filters (fraud), environments, automatic deployment, UUID with payment flow endpoint
 
 ## What is Adyen
 

@@ -19,7 +19,7 @@ class AuthorizationCaller {
         this.webClient = webClientBuilder.baseUrl(authorizePaymentUrl).build();
     }
 
-    PaymentAuthorizationResponseDto authorizePaymentFromAdyenSandbox(PaymentRequest paymentRequest) {
+    public PaymentAuthorizationResponseDto authorizePaymentFromAdyenSandbox(PaymentRequest paymentRequest) {
         return webClient.post()
                 .uri(authorizePaymentUrl)
                 .contentType(MediaType.APPLICATION_JSON)

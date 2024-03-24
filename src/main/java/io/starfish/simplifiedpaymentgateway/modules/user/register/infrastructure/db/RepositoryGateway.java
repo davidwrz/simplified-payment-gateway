@@ -23,4 +23,8 @@ public class RepositoryGateway {
     public Optional<User> findUserByName(String name) {
         return repository.findByName(name);
     }
+
+    public boolean existsUser(String name) {
+        return repository.findByName(name).isPresent();
+    }
 }

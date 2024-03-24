@@ -25,3 +25,4 @@ spring:
 adyen:
   url: https://checkout-test.adyen.com/v71/payments
   api-key: AQEvhmfuXNWTK0Qc+iSYl2oqrvWOTahIH4JfXWxEx1Svn8hraJ64gQ5iXQug5TyeDo0QwV1bDb7kfNy1WIxIIkxgBw==-G4N6q9q+auj9gXvSRNVxGYijOk35fUvEtaRMl0RWnPQ=-;t{@Vg6@,T.D@A^5
+  merchant-account: HenriqueCerqueiraLdaECOM
