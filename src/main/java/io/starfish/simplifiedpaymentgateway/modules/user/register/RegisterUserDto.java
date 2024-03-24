@@ -1,4 +1,4 @@
-package io.starfish.simplifiedpaymentgateway.modules.user.register.application;
+package io.starfish.simplifiedpaymentgateway.modules.user.register;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

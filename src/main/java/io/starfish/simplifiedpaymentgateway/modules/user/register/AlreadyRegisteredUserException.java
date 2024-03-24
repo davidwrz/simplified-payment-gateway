@@ -1,4 +1,4 @@
-package io.starfish.simplifiedpaymentgateway.modules.user.register.application;
+package io.starfish.simplifiedpaymentgateway.modules.user.register;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

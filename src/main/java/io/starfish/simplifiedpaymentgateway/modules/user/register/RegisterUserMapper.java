@@ -1,6 +1,5 @@
-package io.starfish.simplifiedpaymentgateway.modules.user.register.application;
+package io.starfish.simplifiedpaymentgateway.modules.user.register;
 
-import io.starfish.simplifiedpaymentgateway.modules.user.register.domain.User;
 import io.starfish.simplifiedpaymentgateway.utils.mapper.EntityMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

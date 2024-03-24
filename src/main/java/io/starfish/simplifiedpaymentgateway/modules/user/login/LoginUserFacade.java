@@ -1,6 +1,6 @@
-package io.starfish.simplifiedpaymentgateway.modules.user.login.application;
+package io.starfish.simplifiedpaymentgateway.modules.user.login;
 
-import io.starfish.simplifiedpaymentgateway.modules.user.register.domain.User;
+import io.starfish.simplifiedpaymentgateway.modules.user.register.User;
 import io.starfish.simplifiedpaymentgateway.security.JWTUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

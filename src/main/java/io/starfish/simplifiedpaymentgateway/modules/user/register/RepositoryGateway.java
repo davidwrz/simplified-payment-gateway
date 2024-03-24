@@ -1,6 +1,5 @@
-package io.starfish.simplifiedpaymentgateway.modules.user.register.infrastructure.db;
+package io.starfish.simplifiedpaymentgateway.modules.user.register;
 
-import io.starfish.simplifiedpaymentgateway.modules.user.register.domain.User;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,5 @@
-package io.starfish.simplifiedpaymentgateway.modules.user.login.infrastructure.web;
+package io.starfish.simplifiedpaymentgateway.modules.user.login;
 
-import io.starfish.simplifiedpaymentgateway.modules.user.login.application.LoginUserDto;
-import io.starfish.simplifiedpaymentgateway.modules.user.login.application.LoginUserFacade;
-import io.starfish.simplifiedpaymentgateway.modules.user.login.application.LoginUserResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package io.starfish.simplifiedpaymentgateway.modules.user.register.domain;
+package io.starfish.simplifiedpaymentgateway.modules.user.register;
 
 import jakarta.persistence.*;
 import lombok.Getter;
