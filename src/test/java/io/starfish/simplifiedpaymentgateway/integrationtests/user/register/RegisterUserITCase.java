@@ -1,7 +1,7 @@
 package io.starfish.simplifiedpaymentgateway.integrationtests.user.register;
 
-import au.davidwrz.quizapp.modules.user.register.application.RegisterUserDto;
-import au.davidwrz.quizapp.security.JWTUtil;
+import io.starfish.simplifiedpaymentgateway.modules.user.register.RegisterUserDto;
+import io.starfish.simplifiedpaymentgateway.security.JWTUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,6 +10,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD;
