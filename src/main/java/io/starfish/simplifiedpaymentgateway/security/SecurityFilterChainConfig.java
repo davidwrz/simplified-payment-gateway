@@ -2,6 +2,7 @@ package io.starfish.simplifiedpaymentgateway.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -32,10 +33,9 @@ class SecurityFilterChainConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers(HttpMethod.POST, "api/v1/register", "api/v1/auth/login").permitAll()
-//                        .requestMatchers("api-docs/**", "swagger-ui/**").permitAll()
-//                        .anyRequest().authenticated()
-                        .anyRequest().permitAll()
+                        .requestMatchers(HttpMethod.POST, "api/v1/register", "api/v1/auth/login").permitAll()
+                        .requestMatchers("api-docs/**", "swagger-ui/**").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
