@@ -37,9 +37,7 @@ public class PaymentFacadeTest {
         when(validateCard.isValid(paymentRequestDto)).thenReturn(false);
 
         //then
-        assertThrows(CardValidationException.class, () -> {
-            paymentFacade.pay(paymentRequestDto);
-        });
+        assertThrows(CardValidationException.class, () -> paymentFacade.pay(paymentRequestDto));
     }
 
 

@@ -53,8 +53,6 @@ public class RegisterUserFacadeTest {
         when(gateway.existsUser(userDto.name())).thenReturn(true);
 
         // Then
-        assertThrows(AlreadyRegisteredUserException.class, () -> {
-            facade.register(userDto);
-        });
+        assertThrows(AlreadyRegisteredUserException.class, () -> facade.register(userDto));
     }
 }
