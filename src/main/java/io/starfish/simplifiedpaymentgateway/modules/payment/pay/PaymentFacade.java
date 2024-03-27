@@ -4,9 +4,11 @@ import io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize.Aut
 import io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize.PaymentAuthorizationResponse;
 import io.starfish.simplifiedpaymentgateway.modules.payment.validate.CardValidationException;
 import io.starfish.simplifiedpaymentgateway.modules.payment.validate.ValidateCard;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class PaymentFacade {
 
     private final ValidateCard validateCard;
@@ -21,9 +23,11 @@ public class PaymentFacade {
 
     public PaymentAuthorizationResponse pay(PaymentRequestDto paymentRequestDto) {
         if (validateCard.isValid(paymentRequestDto)) {
+            log.info(String.format("Card number:%s is valid", paymentRequestDto.cardDto().number()));
             PaymentRequest paymentRequest = initializePayment.initialize(paymentRequestDto);
             return authorizePayment.authorize(paymentRequest);
         } else {
+            log.error(String.format("Card number:%s is invalid", paymentRequestDto.cardDto().number()));
             throw new CardValidationException("Invalid card");
         }
     }

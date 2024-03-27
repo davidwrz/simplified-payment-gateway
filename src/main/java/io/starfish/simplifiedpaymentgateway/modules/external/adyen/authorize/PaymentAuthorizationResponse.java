@@ -1,7 +1,7 @@
 package io.starfish.simplifiedpaymentgateway.modules.external.adyen.authorize;
 
 public record PaymentAuthorizationResponse (
-        String message
+        String message,
+        String reference
 ) {
-
 }
