@@ -8,7 +8,7 @@ public record PaymentAuthorizationResponseDto(
         String merchantReference,
         PaymentMethod paymentMethod
 ) {
-    record AdditionalData(
+    public record AdditionalData(
             String cvcResult,
             String authCode,
             String avsResult,
@@ -21,9 +21,9 @@ public record PaymentAuthorizationResponseDto(
     ) {
     }
 
-    record Amount(String currency, int value) {
+    public record Amount(String currency, long value) {
     }
 
-    record PaymentMethod(String brand, String type) {
+    public record PaymentMethod(String brand, String type) {
     }
 }
