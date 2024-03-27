@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ValidateCardTest {
@@ -39,18 +40,28 @@ class ValidateCardTest {
     @Test
     void shouldReturnFalseWhenCardNumberIsInvalid() {
         //given
+        PaymentRequestDto.AmountDto amount = new PaymentRequestDto.AmountDto("USD", 1L);
+        PaymentRequestDto.CardDto paymentMethod = new PaymentRequestDto.CardDto("123123123123123", "12", "2023", "Test test", "123");
+        PaymentRequestDto paymentRequestDto = new PaymentRequestDto(amount, paymentMethod);
 
+        Mockito.when(dateProvider.currentZonedDateTime()).thenReturn(ZonedDateTime.of(2023, 11, 2, 6, 5, 4, 0, ZoneId.systemDefault()));
         //when
-
+        boolean isValid = validateCard.isValid(paymentRequestDto);
         //then
+        assertFalse(isValid);
     }
 
     @Test
     void shouldReturnFalseWhenDateIsExpired() {
         //given
+        PaymentRequestDto.AmountDto amount = new PaymentRequestDto.AmountDto("USD", 1L);
+        PaymentRequestDto.CardDto paymentMethod = new PaymentRequestDto.CardDto("4007702835532454", "10", "2023", "Test test", "123");
+        PaymentRequestDto paymentRequestDto = new PaymentRequestDto(amount, paymentMethod);
 
+        Mockito.when(dateProvider.currentZonedDateTime()).thenReturn(ZonedDateTime.of(2023, 11, 2, 6, 5, 4, 0, ZoneId.systemDefault()));
         //when
-
+        boolean isValid = validateCard.isValid(paymentRequestDto);
         //then
+        assertFalse(isValid);
     }
 }

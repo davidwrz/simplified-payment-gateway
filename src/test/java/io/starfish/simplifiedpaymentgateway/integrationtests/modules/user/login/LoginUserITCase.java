@@ -1,4 +1,4 @@
-package io.starfish.simplifiedpaymentgateway.integrationtests.user.login;
+package io.starfish.simplifiedpaymentgateway.integrationtests.modules.user.login;
 
 import io.starfish.simplifiedpaymentgateway.integrationtests.helpers.RegisterUserHelper;
 import io.starfish.simplifiedpaymentgateway.modules.user.login.LoginUserDto;
