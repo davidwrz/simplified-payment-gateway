@@ -42,4 +42,4 @@ jobs:
         run: mvn -ntp -B verify -Djib.to.image=davidwrz/simplified-payment-gateway:latest jib:dockerBuild
 
       - name: Push Image to Docker Hub
-        run: docker push davidwrz/quizapp
+        run: docker push davidwrz/simplified-payment-gateway
