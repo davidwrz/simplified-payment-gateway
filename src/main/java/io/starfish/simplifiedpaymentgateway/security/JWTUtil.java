@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -16,8 +15,7 @@ import java.util.Map;
 @Service
 public class JWTUtil {
 
-    @Value("${jwt.secret-key}")
-    private static String secretKey;
+    private static final String SECRET_KEY = "placeHolderSecretFromConfiguration";
 
     public String issueToken(String subject) {
         return issueToken(subject, Map.of());
@@ -50,7 +48,7 @@ public class JWTUtil {
     }
 
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(secretKey.getBytes());
+        return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
 
     public boolean isTokenValid(String jwt, String name) {
