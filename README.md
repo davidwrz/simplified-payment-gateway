@@ -17,7 +17,7 @@ following requirements have been implemented:
 - Authorization and authentication with JWT
 - User management in the database
 - Unit and integration tests
-- Pipelines for automatic testing, building, dockerizing, and deploying the application on Heroku
+- Pipelines for automatic testing, building and dockerizing the application
 
 ## About Adyen
 
@@ -98,9 +98,17 @@ card is validated using the Luhn algorithm and expiration date. The application 
 payment details.
 Upon receiving the response message, it contains:
 
+when succesful:
 ```json
 {
   "message": "Authorised",
+  "reference": "f2136bd1-e9da-4a21-8cd0-70d23cc4f7c6"
+}
+```
+when unsuccesful:
+```json
+{
+  "message": "Refused",
   "reference": "f2136bd1-e9da-4a21-8cd0-70d23cc4f7c6"
 }
 ```

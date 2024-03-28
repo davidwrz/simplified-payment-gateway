@@ -16,11 +16,11 @@ public record PaymentRequestDto(
     }
 
     public record CardDto(
-            @NotNull @Size(min = 13, max = 16) String number,
-            @NotNull @Pattern(regexp = "\\d{2}", message = "Wrong expiry month") String expiryMonth,
-            @NotNull @Pattern(regexp = "\\d{4}", message = "Wrong expiry year") String expiryYear,
-            @NotNull @Size(min = 3, max = 50) String holderName,
-            @NotNull @Size(min = 3, max = 3) String cvc
+            @NotNull @Size(min = 13, max = 16, message = "Invalid card number") String number,
+            @NotNull @Pattern(regexp = "\\d{2}", message = "Invalid expiry month") String expiryMonth,
+            @NotNull @Pattern(regexp = "\\d{4}", message = "Invalid expiry year") String expiryYear,
+            @NotNull @Size(min = 3, max = 50, message = "Invalid holder name") String holderName,
+            @NotNull @Size(min = 3, max = 3, message = "Invalid cvc") String cvc
     ) {
     }
 }

@@ -1,4 +1,4 @@
-name: CD - Deployment on Heroku
+name: CD - Deployment on dockerhub
 
 on:
   push:
